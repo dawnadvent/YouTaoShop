@@ -142,7 +142,7 @@ static NSString *shareNote = @"wjwSharedNoteKey";
 - (void)TotalFanliResult:(float)fanliValue
 {
     if (!fanliValue) {
-        fanliDesLable.text = @"网络错误";
+        fanliDesLable.text = @"无返利/网络错误";
         return;
     }
     userFanli = fanliValue;

@@ -90,6 +90,8 @@ uint searchAlertFlag = 0;
 
 - (void)dealloc {
     
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(noteUserWaitingOrder) object:nil];
+    
     [[SHKActivityIndicator currentIndicator] hidden];
     
     
@@ -253,7 +255,7 @@ uint searchAlertFlag = 0;
     [[SHKActivityIndicator currentIndicator] hidden];
     NSString *string = nil;
     if (!failCount) {
-        string = [NSString stringWithFormat:@"%d宝贝全部有返利,正在跟单中", succeedCount];
+        string = [NSString stringWithFormat:@"%d宝贝有返利,正在跟单中", succeedCount];
     }else if(succeedCount){
         string = [NSString stringWithFormat:@"共%d宝贝有返利,%d宝贝无返利", succeedCount, failCount];
     }else{
@@ -267,6 +269,13 @@ uint searchAlertFlag = 0;
     [[SHKActivityIndicator currentIndicator] displayActivity:string];
 }
 
+- (void)noteUserWaitingOrder
+{
+    [[SHKActivityIndicator currentIndicator] hidden];
+    [[SHKActivityIndicator currentIndicator] displayActivity:@"返利信息确认中，请等待3秒后提交订单"];
+    [[SHKActivityIndicator currentIndicator] hideAfterDelay:3.5];
+}
+
 - (void)WebViewSClickLoadResult:(BOOL)boolResult
 {
     if (boolResult) {
@@ -275,9 +284,11 @@ uint searchAlertFlag = 0;
         failedWebLaodCount++;
     }
     [[SHKActivityIndicator currentIndicator] hidden];
-    NSString *string = [NSString stringWithFormat:@"共%d宝贝 已有%d宝贝跟单成功", hasSClickCount, succeedWebLoadCount];
+    NSString *string = [NSString stringWithFormat:@"共%d宝贝 有%d宝贝跟单成功", hasSClickCount, succeedWebLoadCount];
     [[SHKActivityIndicator currentIndicator] displayActivity:string];
     [[SHKActivityIndicator currentIndicator] hideAfterDelay:2.5];
+
+    [self performSelector:@selector(noteUserWaitingOrder) withObject:nil afterDelay:2.5];
 }
 
 //解析淘宝购物车内数据，并且做跟单处理
@@ -693,6 +704,8 @@ uint lableHeight = 25;
     // Do any additional setup after loading the view from its nib.
     //((UIScrollView *)[_webView.subviews objectAtIndex:0]).delegate = self;
     
+    [[RFToast sharedInstance] showToast:@"左滑(手势)让浏览器后退哦" inView:self.view];
+    
     _ToolBaseView.frame = CGRectMake(0, iphone5 ? 548 - 33 : 548 - 33, 320, 33);
     [self refreshWebControl];
     
@@ -709,7 +722,7 @@ uint lableHeight = 25;
     _progressProxy.progressDelegate = self;
 
     UISwipeGestureRecognizer *recognizer;
-    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(returnClick:)];
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gesReturn)];
     [recognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
     [[self view] addGestureRecognizer:recognizer];
     [recognizer release];
@@ -917,6 +930,13 @@ uint lableHeight = 25;
 
 - (IBAction)returnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)gesReturn{
+    if (_webView.canGoBack) {
+        [_webView goBack];
+    }else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - shop cart delegate

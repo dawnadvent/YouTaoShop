@@ -7,13 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LeveyTabBarController.h"
 
-@class ViewController;
+#if TARGET_IPHONE_SIMULATOR
+#define SIMULATOR 1
+#elif TARGET_OS_IPHONE
+#define SIMULATOR 0
+#endif
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, LeveyTabBarControllerDelegate, UINavigationControllerDelegate>
+{
+    LeveyTabBarController *leveyTabBarController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic) UIViewController *viewController;
 
-@property (strong, nonatomic) ViewController *viewController;
+
++ (NSInteger)OSVersion;
++ (LeveyTabBarController *)getLeveyTabBarControl;
+
 
 @end

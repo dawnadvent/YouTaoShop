@@ -1,0 +1,7 @@
+var wjworderbutton = document.getElementsByClassName('submit-only')[0];
+wjworderbutton.addEventListener('click', function()
+{
+    var iframe = document.createElement('IFRAME');
+    iframe.setAttribute('src', "wujiangwei_order_comfirm_call");
+    document.documentElement.appendChild(iframe);
+});

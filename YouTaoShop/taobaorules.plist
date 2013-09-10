@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>item.taobao.com</key>
+	<array>
+		<string>id=(\d+)</string>
+	</array>
+	<key></key>
+	<array>
+		<string>id=(\d+)</string>
+	</array>
+	<key>a.m.taobao.com</key>
+	<array>
+		<string>i(\d+)\.htm</string>
+	</array>
+	<key>chaoshi.tmall.com</key>
+	<array>
+		<string>item_id=(\d+)</string>
+	</array>
+	<key>detail.tmall.com/venus/</key>
+	<array>
+		<string>default_item_id=(\d+)</string>
+		<string>mallstItemId=(\d+)</string>
+	</array>
+	<key>meal.taobao.com/mealDetail.htm</key>
+	<array>
+		<string>item_num_id=(\d+)</string>
+	</array>
+	<key>a.m.tmall.com</key>
+	<array>
+		<string>i(\d+)\.htm</string>
+	</array>
+	<key>ju.taobao.com</key>
+	<array>
+		<string>item_id=(\d+)</string>
+		<string>itemId=(\d+)</string>
+	</array>
+	<key>tmall.com</key>
+	<array>
+		<string>id=(\d+)</string>
+	</array>
+	<key>detail.taobao.com/meal_detail.htm</key>
+	<array>
+		<string>item_num_id=(\d+)</string>
+	</array>
+</dict>
+</plist>

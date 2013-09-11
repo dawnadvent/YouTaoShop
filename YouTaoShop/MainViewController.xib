@@ -280,7 +280,7 @@
 							<object class="IBUIButton" id="328030016">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{161, 414}, {152, 53}}</string>
+								<string key="NSFrame">{{161, 409}, {152, 58}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="827741338"/>
@@ -303,7 +303,7 @@
 							<object class="IBUIButton" id="760348443">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{161, 469}, {152, 77}}</string>
+								<string key="NSFrame">{{161, 469}, {152, 63}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="647180547"/>
@@ -326,7 +326,7 @@
 							<object class="IBUILabel" id="647180547">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{192, 493}, {50, 25}}</string>
+								<string key="NSFrame">{{192, 489}, {50, 25}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="486361558"/>
@@ -354,7 +354,7 @@
 							<object class="IBUIButton" id="928512021">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{161, 342}, {152, 69}}</string>
+								<string key="NSFrame">{{161, 342}, {152, 64}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1066689756"/>
@@ -485,7 +485,7 @@
 							<object class="IBUIButton" id="268669460">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{161, 549}, {152, 49}}</string>
+								<string key="NSFrame">{{161, 535}, {152, 63}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="513793562"/>
@@ -519,7 +519,7 @@
 							<object class="IBUIButton" id="711129338">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{5, 535}, {153, 63}}</string>
+								<string key="NSFrame">{{5, 535}, {152, 63}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1033752527"/>
@@ -798,7 +798,7 @@
 							<object class="IBUILabel" id="156366390">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{194, 576}, {115, 13}}</string>
+								<string key="NSFrame">{{194, 572}, {115, 13}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -826,7 +826,7 @@
 							<object class="IBUILabel" id="513793562">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{201, 557}, {113, 18}}</string>
+								<string key="NSFrame">{{200, 550}, {113, 18}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="156366390"/>
@@ -933,7 +933,7 @@
 							<object class="IBUIImageView" id="469828986">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{155, 552}, {52, 49}}</string>
+								<string key="NSFrame">{{155, 547}, {52, 49}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="268669460"/>
@@ -1018,7 +1018,7 @@
 							<object class="IBUIImageView" id="761323563">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{245, 350}, {63, 54}}</string>
+								<string key="NSFrame">{{245, 347}, {63, 54}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="619049102"/>
@@ -1052,7 +1052,7 @@
 							<object class="IBUIImageView" id="486361558">
 								<reference key="NSNextResponder" ref="644249035"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{242, 482}, {58, 47}}</string>
+								<string key="NSFrame">{{242, 478}, {58, 47}}</string>
 								<reference key="NSSuperview" ref="644249035"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="469828986"/>
@@ -1407,7 +1407,6 @@
 							<reference ref="760348443"/>
 							<reference ref="268669460"/>
 							<reference ref="156366390"/>
-							<reference ref="513793562"/>
 							<reference ref="469828986"/>
 							<reference ref="711129338"/>
 							<reference ref="1033752527"/>
@@ -1418,6 +1417,7 @@
 							<reference ref="673462476"/>
 							<reference ref="486361558"/>
 							<reference ref="647180547"/>
+							<reference ref="513793562"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -1724,20 +1724,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MainViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="editEnd:">id</string>
-						<string key="hidePic:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="editEnd:">
-							<string key="name">editEnd:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="hidePic:">
-							<string key="name">hidePic:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="BannerScrollView">UIScrollView</string>
 						<string key="baseScrollView">UIScrollView</string>

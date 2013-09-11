@@ -74,9 +74,9 @@
 
 + (CGFloat) convertFanliNum:(CGFloat)originalFanli
 {
-    if(originalFanli < 1)
+    if(originalFanli < 0.5)
     {
-        //少于0.25元，不给用户显示有多少返利，直接无返利
+        //少于0.5元，不给用户显示有多少返利，直接无返利
         return 0;
     }else if (originalFanli < 5)
     {

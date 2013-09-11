@@ -163,6 +163,7 @@
     
     taobaoShopCartViewViewController *webContentViewControl = nil;
     webContentViewControl = [[[taobaoShopCartViewViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    
     NSString *urlS = nil;
     NSURL *url2 = nil;
     
@@ -273,12 +274,14 @@
             break;
             //蘑菇街
         case 501:
+            [self pretendAsPcForBrower];
             webContentViewControl.isNeedCustomCss = YES;
             urlS = @"http://m.mogujie.com/";
             [MobClick event:@"mogujie"];
             break;
             //折800
         case 502:
+            [self pretendAsPcForBrower];
             webContentViewControl.isNeedCustomCss = YES;
             urlS = @"http://m.zhe800.com";
             [MobClick event:@"zhe800"];
@@ -300,7 +303,6 @@
 
 - (void)pretendAsPcForBrower
 {
-    return;
     if (1) {
         NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/534.56.5 (KHTML, like Gecko) Version/5.1.6 Safari/534.56.5)", @"UserAgent", nil];//MSIE 8.0;
         [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
@@ -407,7 +409,45 @@
         //[[RFToast sharedInstance] showToast:@"wifi网络下，淘宝品牌店铺页面自动使用高清模式" inView:self.view];
     }
     
+    [self rankMe];
+    
     return;
+}
+
+static NSString *noteRank = @"userNoteRank";
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    int shareFlag = [[NSUserDefaults standardUserDefaults] integerForKey:noteRank];
+    if (!buttonIndex) {
+        //share
+        shareFlag = -270;
+        [[NSUserDefaults standardUserDefaults] setInteger:shareFlag forKey:noteRank];
+
+        [MobClick event:@"rankMeByNote"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d",667902169]]];
+    }else{
+        shareFlag = -70;
+        [[NSUserDefaults standardUserDefaults] setInteger:shareFlag forKey:noteRank];
+        [MobClick event:@"refuseRank"];
+    }
+}
+
+
+- (void)rankMe
+{
+    
+    int shareFlag = [[NSUserDefaults standardUserDefaults] integerForKey:noteRank];
+    
+    if (shareFlag == 10) {
+        UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:nil message:@"给我一个评价，您的评价是我的动力" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:@"残忍的拒绝", nil] autorelease];
+        [alertView show];
+    }else
+    {
+        shareFlag++;
+        [[NSUserDefaults standardUserDefaults] setInteger:shareFlag forKey:noteRank];
+    }
+    
 }
 
 - (void)UMengOnlineData:(NSNotification *)notification
@@ -441,7 +481,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-
+    
     NSNumber *flagNum = [[NSUserDefaults standardUserDefaults] objectForKey:kNEW_SHOW_PIC];
     if (!flagNum || !flagNum.boolValue) {
         introducePic.frame = CGRectMake(0, iphone5 ? 0 : -40, 320, 548);

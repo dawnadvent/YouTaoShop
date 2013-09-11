@@ -71,9 +71,10 @@ LeveyTabBarController *gobalLeveyTabBarC = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024*1024   // 1MB mem cache
-                                                         diskCapacity:1024*1024*5 // 5MB disk cache
-                                                             diskPath:[SDURLCache defaultCachePath]];
+    SDURLCache *urlCache = [[[SDURLCache alloc] initWithMemoryCapacity:10*1024*1024   // 1MB mem cache
+                                                         diskCapacity:1024*1024*50 // 5MB disk cache
+                                                             diskPath:[SDURLCache defaultCachePath]] autorelease];
+    [NSURLCache setSharedURLCache:urlCache];
     
     MainViewController *firstVC = [[[MainViewController alloc] initWithNibName:nil bundle:nil] autorelease];
 	TaobaoViewController *secondVC = [[[TaobaoViewController alloc] initWithNibName:nil bundle:nil] autorelease];

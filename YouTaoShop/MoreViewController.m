@@ -13,6 +13,7 @@
 #import "followOrderViewController.h"
 #import "normalQaViewController.h"
 #import "customFollowShopCart.h"
+#import "GetFanliViewController.h"
 
 #import "AppDelegate.h"
 
@@ -85,6 +86,13 @@ static NSString *shareNote = @"wjwSharedNoteKey";
         [MobClick event:@"sharedNoteNo"];
     }
 }
+
+- (IBAction)seeRebateNote:(id)sender {
+    GetFanliViewController *vc = [[[GetFanliViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (IBAction)getFanli:(id)sender {
     

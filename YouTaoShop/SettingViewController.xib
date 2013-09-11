@@ -310,8 +310,11 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">标准版淘宝天猫会自动转到触屏版</string>
-						<reference key="IBUITextColor" ref="912186016"/>
+						<string key="IBUIText">标准版淘宝天猫会无法获得返利</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC45MTM3MjU1NTQ5IDAuNDM5MjE1NzE5NyAwLjgzOTIxNTc1NTUAA</bytes>
+						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<reference key="IBUIFontDescription" ref="708172742"/>
@@ -581,39 +584,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SettingViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="aboutMe:">id</string>
-						<string key="clearCookie:">id</string>
-						<string key="switchValueChaneg:">UISwitch</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="aboutMe:">
-							<string key="name">aboutMe:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="clearCookie:">
-							<string key="name">clearCookie:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="switchValueChaneg:">
-							<string key="name">switchValueChaneg:</string>
-							<string key="candidateClassName">UISwitch</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="isGetFanliInShopcart">UISwitch</string>
-						<string key="isGotoDetail">UISwitch</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="isGetFanliInShopcart">
-							<string key="name">isGetFanliInShopcart</string>
-							<string key="candidateClassName">UISwitch</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="isGotoDetail">
-							<string key="name">isGotoDetail</string>
-							<string key="candidateClassName">UISwitch</string>
-						</object>
-					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SettingViewController.h</string>

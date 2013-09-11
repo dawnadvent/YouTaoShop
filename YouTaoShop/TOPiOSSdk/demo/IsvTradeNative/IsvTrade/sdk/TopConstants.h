@@ -1,0 +1,22 @@
+//
+//  Constants.h
+//  TOPIOSSdk
+//
+//  Created by fangweng on 12-11-17.
+//
+//
+
+#import <Foundation/Foundation.h>
+
+@interface TopConstants : NSObject
+
+FOUNDATION_EXPORT NSString *const SELLER_PLATFORM_APPKEY;
+FOUNDATION_EXPORT NSString *const SELLER_PLATFORM_CALLBACK;
+
+FOUNDATION_EXPORT NSString *const PARAMETER_IS_RESPONSE;
+FOUNDATION_EXPORT NSString *const PARAMETER_RESPONSE;
+FOUNDATION_EXPORT NSString *const PARAMETER_SEQUENCE;
+FOUNDATION_EXPORT NSString *const PARAMETER_EVENT;
+FOUNDATION_EXPORT NSString *const PARAMETER_CALLBACKURL;
+
+@end

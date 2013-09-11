@@ -190,6 +190,7 @@
     [message release];
     [scrollView release];
     [photoLable release];
+    [phoneNum release];
     [super dealloc];
 }
 
@@ -204,6 +205,8 @@
     scrollView = nil;
     [photoLable release];
     photoLable = nil;
+    [phoneNum release];
+    phoneNum = nil;
     [super viewDidUnload];
 }
 
@@ -294,7 +297,7 @@
         [mailPicker addAttachmentData: imageData mimeType: @"" fileName: @"photo.jpg"];
     }
 
-    NSString *info = [NSString stringWithFormat:@"支付宝账号%@  订单信息 %@ App版本%@ 分享次数-0122%d2239-1001x001-0x%fT-x128x", zhifubaoAccount.text, [customFollowShopCart getOrderFanliInfo], [MailViewController getCurrentVersion], [[NSUserDefaults standardUserDefaults] integerForKey:userSharedSucceedKey], [MoreViewController getUserFanliTotal]];
+    NSString *info = [NSString stringWithFormat:@"支付宝账号%@  手机号：%@ 订单信息 %@ App版本%@ 分享次数-0122%d2239-1001x001-0x%fT-x128x", zhifubaoAccount.text, phoneNum.text, [customFollowShopCart getOrderFanliInfo], [MailViewController getCurrentVersion], [[NSUserDefaults standardUserDefaults] integerForKey:userSharedSucceedKey], [MoreViewController getUserFanliTotal]];
     
     NSString *userMessage = message.text.length > 0 ? message.text : @"暂无留言";
     

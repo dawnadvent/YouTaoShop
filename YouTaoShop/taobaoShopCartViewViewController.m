@@ -895,7 +895,14 @@ uint lableHeight = 25;
     NSRange aliRange = [requestUrl rangeOfString:@"alipay"];
     
     //无淘宝客权限时，使用javascript实现的跟单机制  淘宝8月分改版前的代码，最新版本taobao跟单代码见New
-    if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm"]) {
+    if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm?buy_now="]) {
+        //跟单
+        [MobClick event:@"juhuasuanBuy"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在参团,购买聚划算商品，此时获取返利需要提供您的订单号给我们，谢谢" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        
+    }else if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm"] && ![requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm?buy_now="]) {
         //跟单
         [MobClick event:@"standardTaobaoFollowOrder"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"标准版淘宝无法跟单，请切换到触屏版本(淘宝首页拉至最下方，选择触屏版)" delegate:self cancelButtonTitle:@"切换" otherButtonTitles:@"不要返利", nil];

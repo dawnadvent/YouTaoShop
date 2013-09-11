@@ -29,7 +29,6 @@ uint searchAlertFlag = 0;
 
 @interface taobaoShopCartViewViewController ()
 {
-    IBOutlet UIView *alertFanliView;
     
     IBOutlet UIButton *getFanliButton;
     
@@ -96,7 +95,6 @@ uint searchAlertFlag = 0;
     
     
     [self releaseCustomFollowTaobaoProductObject];
-    [self releaseTaobaoParseDataUntil];
 
     [self releaseTaobaoOnePID];
     
@@ -112,7 +110,6 @@ uint searchAlertFlag = 0;
     [_ToolBaseView release];
     [_favImageView release];
     [getFanliButton release];
-    [alertFanliView release];
     [super dealloc];
 }
 
@@ -272,7 +269,7 @@ uint searchAlertFlag = 0;
 - (void)noteUserWaitingOrder
 {
     [[SHKActivityIndicator currentIndicator] hidden];
-    [[SHKActivityIndicator currentIndicator] displayActivity:@"返利信息确认中，请等待3秒后提交订单"];
+    [[SHKActivityIndicator currentIndicator] displayActivity:@"返利信息确认中，请等待3秒"];
     [[SHKActivityIndicator currentIndicator] hideAfterDelay:3.5];
 }
 
@@ -406,18 +403,18 @@ uint lableHeight = 25;
 -(void)allocNewTaobaoUntilToParseData
 {
     //用JS解析当前订单中的淘宝宝贝IDs
-    self.taobaoShopCartProductIDString = [self injectNewJavascriptGetPids];
     self.taobaoShopNamesString = [self injectNewJavascript];
+    self.taobaoShopCartProductIDString = [self injectNewJavascriptGetPids];
     //购物车入口，tc值固定为v0
-    taobaoFollowShopCartUntil *followShopCartObject = [[taobaoFollowShopCartUntil alloc] initWithNewJSString:_taobaoShopCartProductIDString withShopNameString:_taobaoShopNamesString withTc:@"v0" isAutoExcute:YES delegate:nil];
+    /*taobaoFollowShopCartUntil *followShopCartObject = [[taobaoFollowShopCartUntil alloc] initWithNewJSString:_taobaoShopCartProductIDString withShopNameString:_taobaoShopNamesString withTc:@"v0" isAutoExcute:YES delegate:nil];
     self.followShopCart = followShopCartObject;
     NSLog(@"new _followShopCart.taobaoProductObjects %@", _followShopCart.taobaoProductObjects);
     //self.followShopCart.delegate=self;
-    [followShopCartObject release];
+    [followShopCartObject release];*/
 }
 
 //解析淘宝购物车内数据，并且做跟单处理
--(void)allocTaobaoUntilToParseData
+/*-(void)allocTaobaoUntilToParseData
 {
     //用JS解析当前订单中的淘宝宝贝IDs
     self.taobaoShopCartProductIDString = [self injectJavascript];
@@ -453,6 +450,7 @@ uint lableHeight = 25;
     favVC.menuButton.hidden = YES;
 }
 
+//unused
 - (IBAction)getFanliClick:(id)sender {
     if (searchAlertFlag) {
         //
@@ -460,7 +458,7 @@ uint lableHeight = 25;
     
     [self startSearchFollowOrder];
 }
-
+*/
 
 #pragma mark - taobao api
 
@@ -704,7 +702,7 @@ uint lableHeight = 25;
     // Do any additional setup after loading the view from its nib.
     //((UIScrollView *)[_webView.subviews objectAtIndex:0]).delegate = self;
     
-    [[RFToast sharedInstance] showToast:@"左滑(手势)让浏览器后退哦" inView:self.view];
+    [[RFToast sharedInstance] showToast:@"左右滑手势,让浏览器前进后退哦" inView:self.view];
     
     _ToolBaseView.frame = CGRectMake(0, iphone5 ? 548 - 33 : 548 - 33, 320, 33);
     [self refreshWebControl];
@@ -726,6 +724,12 @@ uint lableHeight = 25;
     [recognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
     [[self view] addGestureRecognizer:recognizer];
     [recognizer release];
+    
+    UISwipeGestureRecognizer *recognizerL;
+    recognizerL = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(gesForward)];
+    [recognizerL setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [[self view] addGestureRecognizer:recognizerL];
+    [recognizerL release];
 }
 
 - (NSString *)injectJavascript {
@@ -799,6 +803,7 @@ uint lableHeight = 25;
 
 - (void)newStartFollowShopCart
 {
+    [MobClick event:@"shopcartSettlement"];
     [self allocNewTaobaoUntilToParseData];
     [self allocNewCustomFollowTaobaoProductObject];
 }
@@ -821,7 +826,7 @@ uint lableHeight = 25;
     NSRange rangStand = [url rangeOfString:@"v=1"];
     NSRange taobao = [url rangeOfString:@"m.taobao.com"];
     NSRange tmall = [url rangeOfString:@"m.tmall.com"];
-    if (rangStand.location != NSNotFound && (taobao.location != NSNotFound || tmall.location != NSNotFound) && ![url hasPrefix:@"http://wvs.m.taobao.com/buy_item.htm?v=1&ttid"]) {
+    if (rangStand.location != NSNotFound && (taobao.location != NSNotFound || tmall.location != NSNotFound)){
         url = [url stringByReplacingOccurrencesOfString:@"v=1" withString:@"v=0"];
         NSLog(@"new url %@", url);
         [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
@@ -835,15 +840,6 @@ uint lableHeight = 25;
     NSLog(@"requestUrl %@ range location %d length %d", url, rang.location, rang.length);
     if ([url hasPrefix:taobaoPreUrl] && rang.length) {
         [self performSelector:@selector(newStartFollowShopCart) withObject:nil afterDelay:0.4];
-    }
-    
-    //can not be release
-    if ([url hasPrefix:taobaoPreUrl] && rang.length) {
-        getFanliButton.hidden = NO;
-    }else if(![url hasPrefix:@"https://wapcashier.alipay.com/cashier/exCashier.htm"]){
-        getFanliButton.hidden = YES;
-    }else{
-        getFanliButton.hidden = YES;
     }
 
     NSRange payRang = [url rangeOfString:@"wujiangwei_order_comfirm_call"];
@@ -873,8 +869,16 @@ uint lableHeight = 25;
     //[[RFToast sharedInstance] showToast:@"网速不给力哦" inView:self.view];
 }
 
-- (IBAction)closeAlertView:(id)sender {
-    [alertFanliView removeFromSuperview];
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 1001) {
+        if (!buttonIndex) {
+             [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://h5.m.taobao.com/cart/index.htm#cart"]]];
+        }else{
+            [[RFToast sharedInstance] showToast:@"非常抱歉,您此次购买无返利哦" inView:self.view];
+        }
+    }
+    
 }
 
 //数据加载完
@@ -892,21 +896,18 @@ uint lableHeight = 25;
     
     //无淘宝客权限时，使用javascript实现的跟单机制  淘宝8月分改版前的代码，最新版本taobao跟单代码见New
     if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm"]) {
-        getFanliButton.hidden = NO;
         //跟单
-        [self allocCustomFollowTaobaoProductObject];
-        [MobClick event:@"shopcartSettlement"];
-        //用户查看购物车详情显示
-        [self allocTaobaoUntilToParseData];
+        [MobClick event:@"standardTaobaoFollowOrder"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"标准版淘宝无法跟单，请切换到触屏版本(淘宝首页拉至最下方，选择触屏版)" delegate:self cancelButtonTitle:@"切换" otherButtonTitles:@"不要返利", nil];
+        alert.tag = 1001;
+        [alert show];
+        [alert release];
+        
     }else if(aliRange.location == NSNotFound){
         //跟单release
         [self releaseCustomFollowTaobaoProductObject];
-        
-        //用户查看购物车详情显示 release
-        [self releaseTaobaoParseDataUntil];
-        getFanliButton.hidden = YES;
     }else{
-        getFanliButton.hidden = YES;
+        //getFanliButton.hidden = YES;
     }
     
     //taobaokeAPI 跟单
@@ -937,6 +938,12 @@ uint lableHeight = 25;
         [_webView goBack];
     }else
         [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)gesForward{
+    if (_webView.canGoForward) {
+        [_webView goForward];
+    }
 }
 
 #pragma mark - shop cart delegate
@@ -1018,8 +1025,6 @@ uint lableHeight = 25;
     [self setFavImageView:nil];
     [getFanliButton release];
     getFanliButton = nil;
-    [alertFanliView release];
-    alertFanliView = nil;
     [super viewDidUnload];
 }
 @end

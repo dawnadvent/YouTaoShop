@@ -93,7 +93,7 @@
     //NSLog(@"dic3=%@=%f",dic,moneyF);
     
     if (!moneyF) {
-        fanliNum.text = @"无返利";
+        fanliNum.text = @"返0.0元";
     }else{
         fanliNum.text = [NSString stringWithFormat:@"返%.2f元", moneyF];
     }

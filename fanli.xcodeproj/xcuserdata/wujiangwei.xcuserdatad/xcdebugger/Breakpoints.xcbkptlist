@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
-         timestampString = "400478819.552075"
+         timestampString = "400586071.793207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "95"
-         endingLineNumber = "95"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -53,6 +53,32 @@
          startingLineNumber = "214"
          endingLineNumber = "214"
          landmarkName = "+deleteItemInFanliInfoDisk:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
+         timestampString = "400587282.199634"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "807"
+         endingLineNumber = "807"
+         landmarkName = "-newStartFollowShopCart"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
+         timestampString = "400587282.199634"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "805"
+         endingLineNumber = "805"
+         landmarkName = "-newStartFollowShopCart"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -236,14 +236,18 @@
     BOOL pidFlag = NO;
     NSMutableArray *diskArray = [NSMutableArray arrayWithCapacity:_array.count];
     for (NSDictionary *dic in _array) {
-        if ([dic safeObjectForKey:kWProductSClick]) {
-            [diskArray addObject:[dic objectForKey:kWProductId]];
+        NSString *sPid = [dic safeObjectForKey:kWProductId];
+        if ([dic safeObjectForKey:kWProductSClick] && sPid.length > 3) {
+            [diskArray addObject:sPid];
             pidFlag = YES;
         }
     }
     
     if (!pidFlag) {
-        NSLog(@"user buy something,but these things no rebate,so ignore,not record");
+        NSLog(@"user buy something,but these things no rebate or pid not exist,so ignore,not record");
+        [[SHKActivityIndicator currentIndicator] hidden];
+        [[SHKActivityIndicator currentIndicator] displayActivity:@"您没有购买/使用了标准版淘宝购买宝贝"];
+        [[SHKActivityIndicator currentIndicator] hideAfterDelay:4.0];
         return;
     }
     

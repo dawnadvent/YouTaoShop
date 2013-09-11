@@ -31,11 +31,11 @@
 #define kTaobaoSecret	@"a5d6cc9fbf9d991df7a5accabaef5388"
 #define kTaobaoCallBack     @"fanliapp://"
 
-#define kWapTaobaoHome           @"http://m.taobao.com"
+#define kWapTaobaoHome           @"http://m.taobao.com/?v=0"
 #define kWapTaobaoSpecialPrice   @"http://tejia.m.taobao.com/"
 #define kWapTaobaoJuhuasuan      @"http://ju.m.taobao.com/jhs/index.htm?"
 
-#define kWapTmallHome            @"http://m.tmall.com"
+#define kWapTmallHome            @"http://m.tmall.com/?v=0"
 #define kWapTmallSpecialSell     @"http://temai.m.tmall.com"
 #define kWapTmallNewFind         @"http://yyz.m.tmall.com/cu/tmallyzxfx.html?"
 

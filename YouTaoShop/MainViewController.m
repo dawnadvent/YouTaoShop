@@ -163,7 +163,6 @@
     
     taobaoShopCartViewViewController *webContentViewControl = nil;
     webContentViewControl = [[[taobaoShopCartViewViewController alloc] initWithNibName:nil bundle:nil] autorelease];
-    UIView;
     NSString *urlS = nil;
     NSURL *url2 = nil;
     
@@ -185,7 +184,7 @@
             
         //购物车
         case 1000:
-            urlS = @"http://d.m.taobao.com/my_bag.htm";
+            urlS = @"http://h5.m.taobao.com/cart/index.htm#cart";
             [MobClick event:@"taobaoShopCartModel"];
             break;
         //电脑模式

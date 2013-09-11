@@ -1529,6 +1529,7 @@
 		84E64D091754922100765F3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jie Qian (43AQP2M5NJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouTaoShop/fanli-Prefix.pch";
 				INFOPLIST_FILE = "YouTaoShop/fanli-Info.plist";
@@ -1542,6 +1543,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = fanli;
+				PROVISIONING_PROFILE = "402BF0A4-34DE-4EF8-B100-5F8F883BCB6B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1549,6 +1551,7 @@
 		84E64D0A1754922100765F3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Qian (PXRM6WVFC5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouTaoShop/fanli-Prefix.pch";
 				INFOPLIST_FILE = "YouTaoShop/fanli-Info.plist";
@@ -1562,6 +1565,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = fanli;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -182,11 +182,26 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 101) {
+        if (!buttonIndex) {
+            taobaoShopCartViewViewController *vc = [[[taobaoShopCartViewViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            NSURLRequest *request = [[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://m.meilishuo.com/"]] autorelease];
+            
+            [vc.webView loadRequest:request];
+            _isShopCart = YES;
+        }
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     if (![UserInfoObject getUserFavProduct].count && !_isShopCart && !_isHomeFav) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您还没收藏宝贝哦" message:@"进入淘宝宝贝详情页时，点击右下角星星进行收藏" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        alert.tag = 100;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您还没收藏宝贝哦" message:@"进入淘宝宝贝详情页时，点击右下角星星进行收藏，去" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"下次", nil];
+        alert.tag = 101;
         [alert show];
         [alert release];
     }

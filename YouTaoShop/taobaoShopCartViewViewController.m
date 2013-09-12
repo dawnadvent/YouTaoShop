@@ -268,6 +268,9 @@ uint searchAlertFlag = 0;
 
 - (void)noteUserWaitingOrder
 {
+    succeedWebLoadCount = 0;
+    hasSClickCount = 0;
+    failedWebLaodCount = 0;
     [[SHKActivityIndicator currentIndicator] hidden];
     [[SHKActivityIndicator currentIndicator] displayActivity:@"返利信息确认中，请等待3秒"];
     [[SHKActivityIndicator currentIndicator] hideAfterDelay:3.5];
@@ -330,8 +333,26 @@ uint searchAlertFlag = 0;
 
 uint lableHeight = 25;
 
+- (NSString *)getSingleProductName
+{
+    NSString *productName = nil;
+    productName = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('cart-dscp')[0].getElementsByTagName('div')[0].innerHTML"];
+    
+    if (productName.length > 1) {
+        return productName;
+    }
+    
+    productName = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('cart-dscp')[0].getElementsByTagName('div')[0]"];
+    NSLog(@"productName failed 0 %@", productName);
+    productName = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('cart-dscp')[0]"];
+    NSLog(@"productName failed 1 %@", productName);
+    productName = [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('cart-dscp')"];
+    NSLog(@"productName failed 2 %@", productName);
+    return nil;
+}
+
 - (NSString *)injectNewJavascript {
-    NSString *js = @"function getPidList()\
+    NSString *js = @"function getPNameList()\
     {\
         var itemlist = document.getElementsByClassName('itemlist');\
         var ret;\
@@ -340,8 +361,7 @@ uint lableHeight = 25;
             var nodeitems = itemlist[i].childNodes;\
             for(var j = 0; j < nodeitems.length; j++)\
             {\
-                var shopName = document.getElementsByClassName('shop')[i].childNodes[1].getElementsByTagName('h3')[0].innerHTML;\
-                if(nodeitems [j]. firstChild. childNodes[0].checked)\
+                if(nodeitems [j].firstChild.childNodes[0].checked)\
                 {\
                     var pName = nodeitems[j].getElementsByTagName('h4')[0].innerHTML;\
                     if(!i&&!j)\
@@ -360,7 +380,7 @@ uint lableHeight = 25;
     
     [_webView stringByEvaluatingJavaScriptFromString:js];
     
-    NSString *jsRetString = [_webView stringByEvaluatingJavaScriptFromString:@"getPidList();"];
+    NSString *jsRetString = [_webView stringByEvaluatingJavaScriptFromString:@"getPNameList();"];
     NSLog(@"new jsRetString %@", jsRetString);
     return jsRetString;
 }
@@ -373,7 +393,6 @@ uint lableHeight = 25;
     for(var i = 0; i < itemlist.length; i++)\
     {\
     var nodeitems = itemlist[i].childNodes;\
-    var shopName = document.getElementsByClassName('shop')[i].childNodes[1].getElementsByTagName('h3')[0].innerHTML;\
     for(var j = 0; j < nodeitems.length; j++)\
     {\
     if(nodeitems [j]. firstChild. childNodes[0].checked)\
@@ -624,7 +643,7 @@ uint lableHeight = 25;
 {
     NSString *taobaoLId = [taobaoUtil getTaobaoIdWithDic:urlS];
     
-    if ([taobaoLId isEqualToString:_taobaoStringId]) {
+    if ([taobaoLId isEqualToString:_taobaoStringId] || !taobaoLId || taobaoLId.length < 3) {
         return;
     }
     NSNumberFormatter *Nfor = [[[NSNumberFormatter alloc] init] autorelease];
@@ -877,8 +896,13 @@ uint lableHeight = 25;
         }else{
             [[RFToast sharedInstance] showToast:@"非常抱歉,您此次购买无返利哦" inView:self.view];
         }
+    }else if (alertView.tag == 1002){
+        if (!buttonIndex) {
+            [_webView goBack];
+        }else{
+            [[RFToast sharedInstance] showToast:@"非常抱歉,您此次购买无返利哦" inView:self.view];
+        }
     }
-    
 }
 
 //数据加载完
@@ -895,20 +919,21 @@ uint lableHeight = 25;
     NSRange aliRange = [requestUrl rangeOfString:@"alipay"];
     
     //无淘宝客权限时，使用javascript实现的跟单机制  淘宝8月分改版前的代码，最新版本taobao跟单代码见New
-    if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm?buy_now="]) {
-        //跟单
-        [MobClick event:@"juhuasuanBuy"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在参团,购买聚划算商品，此时获取返利需要提供您的订单号给我们，谢谢" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
-        
-    }else if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm"] && ![requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm?buy_now="]) {
+    if ([requestUrl hasPrefix:@"http://d.m.taobao.com/confirm.htm"]) {
         //跟单
         [MobClick event:@"standardTaobaoFollowOrder"];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"标准版淘宝无法跟单，请切换到触屏版本(淘宝首页拉至最下方，选择触屏版)" delegate:self cancelButtonTitle:@"切换" otherButtonTitles:@"不要返利", nil];
-        alert.tag = 1001;
-        [alert show];
-        [alert release];
+        
+        self.taobaoShopNamesString = [self getSingleProductName];
+        self.taobaoShopCartProductIDString = _taobaoStringId;
+        
+        if (_taobaoShopNamesString.length < 2) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"可能出现了一些问题，请返回，把宝贝加入购物车后进入购物车购买获取返利" delegate:self cancelButtonTitle:@"返回" otherButtonTitles:@"不要返利", nil];
+            alert.tag = 1002;
+            [alert show];
+            [alert release];
+        }else{
+            [self allocNewCustomFollowTaobaoProductObject];
+        }
         
     }else if(aliRange.location == NSNotFound){
         //跟单release

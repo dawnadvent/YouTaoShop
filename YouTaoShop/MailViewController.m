@@ -141,6 +141,10 @@
     if (zhifubaoAccount.text.length > 2) {
         [accountDefaults setObject:zhifubaoAccount.text forKey:kUSER_REBATE_ZHIFUBAO_ACCOUNT];
     }
+    //添加数据到 user defaults:
+    if (phoneNum.text.length > 8) {
+        [accountDefaults setObject:phoneNum.text forKey:kUSER_REBATE_PHONE];
+    }
     
     if (!message.text || !message.text.length) {
     //if (1) {
@@ -151,15 +155,10 @@
         }
         
         if (![customFollowShopCart getOrderFanliInfo] && !_imageArray.count) {
-            [[RFToast sharedInstance] showToast:@"暂无购买记录，您也可以从电脑端把订单截屏发送邮件给我们哦" inView:self.view];
+            [[RFToast sharedInstance] showToast:@"暂无购买记录，如果是聚划算频道参团购买宝贝，请把您的购买宝贝的订单号发送邮件给我们" inView:self.view];
             [MobClick event:@"sendMailFailNoFanliInfo"];
             return;
         }
-    }
-    
-    //添加数据到 user defaults:
-    if (phoneNum.text.length > 2) {
-        //[accountDefaults setObject:phoneNum.text forKey:kUSER_REBATE_PHONE];
     }
     
     [MobClick event:@"sendMail"];
@@ -190,7 +189,6 @@
     [message release];
     [scrollView release];
     [photoLable release];
-    [phoneNum release];
     [super dealloc];
 }
 
@@ -205,8 +203,6 @@
     scrollView = nil;
     [photoLable release];
     photoLable = nil;
-    [phoneNum release];
-    phoneNum = nil;
     [super viewDidUnload];
 }
 
@@ -297,11 +293,11 @@
         [mailPicker addAttachmentData: imageData mimeType: @"" fileName: @"photo.jpg"];
     }
 
-    NSString *info = [NSString stringWithFormat:@"支付宝账号%@  手机号：%@ 订单信息 %@ App版本%@ 分享次数-0122%d2239-1001x001-0x%fT-x128x", zhifubaoAccount.text, phoneNum.text, [customFollowShopCart getOrderFanliInfo], [MailViewController getCurrentVersion], [[NSUserDefaults standardUserDefaults] integerForKey:userSharedSucceedKey], [MoreViewController getUserFanliTotal]];
+    NSString *info = [NSString stringWithFormat:@"支付宝账号%@  手机号：%@ 订单信息 %@ App版本%@ sharedInfo-Weibo01622%d2239-Sina1001x001-0x%fQQ-x128x", zhifubaoAccount.text, phoneNum.text, [customFollowShopCart getOrderFanliInfo], [MailViewController getCurrentVersion], [[NSUserDefaults standardUserDefaults] integerForKey:userSharedSucceedKey], [MoreViewController getUserFanliTotal]];
     
     NSString *userMessage = message.text.length > 0 ? message.text : @"暂无留言";
     
-    NSString *emailBody = [NSString stringWithFormat:@"为了让您正确的获取返利，请不要更改邮件内容 \n\n%@ \n\n您的留言：%@ \n\n%@", info, userMessage, [self macaddress]];
+    NSString *emailBody = [NSString stringWithFormat:@"为了让您正确的获取返利，请不要更改邮件内容 \n\n%@ \n\n您的订单号或留言：%@ \n\n%@", info, userMessage, [self macaddress]];
     [mailPicker setMessageBody:emailBody isHTML:NO];
     
     [self presentModalViewController: mailPicker animated:YES];
@@ -311,7 +307,7 @@
 
 -(void)launchMailAppOnDevice
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请去设置中配置您的邮件账户信息，推荐gmail，配置简单方便" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请去系统应用:邮件中配置您的邮件账户信息，推荐gmail，技术支持QQ 461647731" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
     [alert release];
     return;

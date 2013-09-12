@@ -206,6 +206,7 @@
 		84E64DD91756081300765F3D /* taobaorules.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E64DD81756081300765F3D /* taobaorules.plist */; };
 		84E64DDC17572DA400765F3D /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E64DDB17572DA400765F3D /* AppUtil.m */; };
 		84E64DDF17573C8B00765F3D /* taobaoTrackObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E64DDE17573C8B00765F3D /* taobaoTrackObject.m */; };
+		9A18543317E1A7D700911E6A /* FollowOrderRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A18543217E1A7D600911E6A /* FollowOrderRules.m */; };
 		9A4517E417D07A5400843A57 /* TmallChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4517E217D07A5300843A57 /* TmallChannelViewController.m */; };
 		9A4517E517D07A5400843A57 /* TmallChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4517E317D07A5300843A57 /* TmallChannelViewController.xib */; };
 		9A4517E917D084F700843A57 /* taobaoChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4517E717D084F500843A57 /* taobaoChannelViewController.m */; };
@@ -215,7 +216,6 @@
 		9A4517F617D091EE00843A57 /* zhe800.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4517F417D091EE00843A57 /* zhe800.png */; };
 		9A4517FC17D0A11900843A57 /* SDCachedURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4517F917D0A11900843A57 /* SDCachedURLResponse.m */; };
 		9A4517FD17D0A11900843A57 /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4517FB17D0A11900843A57 /* SDURLCache.m */; };
-		9A4517FF17D0A4B500843A57 /* custom.css in Resources */ = {isa = PBXBuildFile; fileRef = 9A4517FE17D0A4B500843A57 /* custom.css */; };
 		9AD38D2217D57DDB00DBC587 /* webImageShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD38D2117D57DDB00DBC587 /* webImageShow.m */; };
 /* End PBXBuildFile section */
 
@@ -480,14 +480,14 @@
 		848E513217AA55000078E9A2 /* LeveyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBar.m; sourceTree = "<group>"; };
 		848E513317AA55000078E9A2 /* LeveyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBarController.h; sourceTree = "<group>"; };
 		848E513417AA55000078E9A2 /* LeveyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBarController.m; sourceTree = "<group>"; };
-		84E64CE51754922100765F3D /* fanli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fanli.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E64CE51754922100765F3D /* testFuncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testFuncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E64CE81754922100765F3D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84E64CEA1754922100765F3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84E64CEC1754922100765F3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		84E64CF01754922100765F3D /* fanli-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fanli-Info.plist"; sourceTree = "<group>"; };
+		84E64CF01754922100765F3D /* testFuncDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testFuncDemo-Info.plist"; sourceTree = "<group>"; };
 		84E64CF21754922100765F3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84E64CF41754922100765F3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84E64CF61754922100765F3D /* fanli-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fanli-Prefix.pch"; sourceTree = "<group>"; };
+		84E64CF61754922100765F3D /* testFuncDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testFuncDemo-Prefix.pch"; sourceTree = "<group>"; };
 		84E64CF71754922100765F3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84E64CF81754922100765F3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84E64CFA1754922100765F3D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -543,6 +543,8 @@
 		84E64DDB17572DA400765F3D /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtil.m; sourceTree = "<group>"; };
 		84E64DDD17573C8A00765F3D /* taobaoTrackObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taobaoTrackObject.h; sourceTree = "<group>"; };
 		84E64DDE17573C8B00765F3D /* taobaoTrackObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taobaoTrackObject.m; sourceTree = "<group>"; };
+		9A18543117E1A7D600911E6A /* FollowOrderRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowOrderRules.h; sourceTree = "<group>"; };
+		9A18543217E1A7D600911E6A /* FollowOrderRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowOrderRules.m; sourceTree = "<group>"; };
 		9A4517E117D07A5300843A57 /* TmallChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TmallChannelViewController.h; sourceTree = "<group>"; };
 		9A4517E217D07A5300843A57 /* TmallChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TmallChannelViewController.m; sourceTree = "<group>"; };
 		9A4517E317D07A5300843A57 /* TmallChannelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TmallChannelViewController.xib; sourceTree = "<group>"; };
@@ -556,7 +558,6 @@
 		9A4517F917D0A11900843A57 /* SDCachedURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCachedURLResponse.m; sourceTree = "<group>"; };
 		9A4517FA17D0A11900843A57 /* SDURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDURLCache.h; sourceTree = "<group>"; };
 		9A4517FB17D0A11900843A57 /* SDURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDURLCache.m; sourceTree = "<group>"; };
-		9A4517FE17D0A4B500843A57 /* custom.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = custom.css; sourceTree = "<group>"; };
 		9AD38D2017D57DDB00DBC587 /* webImageShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webImageShow.h; sourceTree = "<group>"; };
 		9AD38D2117D57DDB00DBC587 /* webImageShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webImageShow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -984,7 +985,7 @@
 		84E64CE61754922100765F3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84E64CE51754922100765F3D /* fanli.app */,
+				84E64CE51754922100765F3D /* testFuncDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1018,6 +1019,8 @@
 				26E2020D17A68FCC0043A2D4 /* customTabBar */,
 				84E64DC21755B36200765F3D /* Singleton.h */,
 				84E64D391754D80300765F3D /* taobaoData.h */,
+				9A18543117E1A7D600911E6A /* FollowOrderRules.h */,
+				9A18543217E1A7D600911E6A /* FollowOrderRules.m */,
 				84E64D961755A82100765F3D /* FanliUntilCodeTool.h */,
 				84E64DDA17572DA400765F3D /* AppUtil.h */,
 				84E64DDB17572DA400765F3D /* AppUtil.m */,
@@ -1093,15 +1096,14 @@
 				2606FAF81777DE580076C4F7 /* AppConfigurationFile */,
 				26E2022617A9592E0043A2D4 /* image1.2.0 */,
 				84E64DC41755FB3F00765F3D /* image */,
-				84E64CF01754922100765F3D /* fanli-Info.plist */,
+				84E64CF01754922100765F3D /* testFuncDemo-Info.plist */,
 				84E64CF11754922100765F3D /* InfoPlist.strings */,
 				84E64CF41754922100765F3D /* main.m */,
-				84E64CF61754922100765F3D /* fanli-Prefix.pch */,
+				84E64CF61754922100765F3D /* testFuncDemo-Prefix.pch */,
 				84E64CFA1754922100765F3D /* Default.png */,
 				84E64CFC1754922100765F3D /* Default@2x.png */,
 				26EA10161769FC47003B965A /* Default-568h@2x.png */,
 				84E64CE71754922100765F3D /* Frameworks */,
-				9A4517FE17D0A4B500843A57 /* custom.css */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1233,9 +1235,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84E64CE41754922100765F3D /* fanli */ = {
+		84E64CE41754922100765F3D /* testFuncDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84E64D081754922100765F3D /* Build configuration list for PBXNativeTarget "fanli" */;
+			buildConfigurationList = 84E64D081754922100765F3D /* Build configuration list for PBXNativeTarget "testFuncDemo" */;
 			buildPhases = (
 				84E64CE11754922100765F3D /* Sources */,
 				84E64CE21754922100765F3D /* Frameworks */,
@@ -1245,9 +1247,9 @@
 			);
 			dependencies = (
 			);
-			name = fanli;
+			name = testFuncDemo;
 			productName = YouTaoShop;
-			productReference = 84E64CE51754922100765F3D /* fanli.app */;
+			productReference = 84E64CE51754922100765F3D /* testFuncDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1259,7 +1261,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = jiangwei.wu;
 			};
-			buildConfigurationList = 84E64CE01754922100765F3D /* Build configuration list for PBXProject "fanli" */;
+			buildConfigurationList = 84E64CE01754922100765F3D /* Build configuration list for PBXProject "testFuncDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1272,7 +1274,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84E64CE41754922100765F3D /* fanli */,
+				84E64CE41754922100765F3D /* testFuncDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -1396,7 +1398,6 @@
 				9A4517F017D08FAE00843A57 /* meilishuo175.jpg in Resources */,
 				9A4517F517D091EE00843A57 /* mogujie175.png in Resources */,
 				9A4517F617D091EE00843A57 /* zhe800.png in Resources */,
-				9A4517FF17D0A4B500843A57 /* custom.css in Resources */,
 				266776C017E0ACD800F22717 /* barImg.bundle in Resources */,
 				266776C317E0ACD800F22717 /* UMSocialLocalizable.strings in Resources */,
 				266776C717E0ACD800F22717 /* UMSCommentDetailController.xib in Resources */,
@@ -1485,6 +1486,7 @@
 				9A4517FC17D0A11900843A57 /* SDCachedURLResponse.m in Sources */,
 				9A4517FD17D0A11900843A57 /* SDURLCache.m in Sources */,
 				9AD38D2217D57DDB00DBC587 /* webImageShow.m in Sources */,
+				9A18543317E1A7D700911E6A /* FollowOrderRules.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1576,8 +1578,8 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jie Qian (43AQP2M5NJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YouTaoShop/fanli-Prefix.pch";
-				INFOPLIST_FILE = "YouTaoShop/fanli-Info.plist";
+				GCC_PREFIX_HEADER = "YouTaoShop/testFuncDemo-Prefix.pch";
+				INFOPLIST_FILE = "YouTaoShop/testFuncDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1587,7 +1589,7 @@
 					"\"$(SRCROOT)/YouTaoShop/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = fanli;
+				PRODUCT_NAME = testFuncDemo;
 				PROVISIONING_PROFILE = "402BF0A4-34DE-4EF8-B100-5F8F883BCB6B";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1598,8 +1600,8 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Qian (PXRM6WVFC5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YouTaoShop/fanli-Prefix.pch";
-				INFOPLIST_FILE = "YouTaoShop/fanli-Info.plist";
+				GCC_PREFIX_HEADER = "YouTaoShop/testFuncDemo-Prefix.pch";
+				INFOPLIST_FILE = "YouTaoShop/testFuncDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1614,7 +1616,7 @@
 					"\"$(SRCROOT)/YouTaoShop/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = fanli;
+				PRODUCT_NAME = testFuncDemo;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1623,7 +1625,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84E64CE01754922100765F3D /* Build configuration list for PBXProject "fanli" */ = {
+		84E64CE01754922100765F3D /* Build configuration list for PBXProject "testFuncDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84E64D061754922100765F3D /* Debug */,
@@ -1632,7 +1634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84E64D081754922100765F3D /* Build configuration list for PBXNativeTarget "fanli" */ = {
+		84E64D081754922100765F3D /* Build configuration list for PBXNativeTarget "testFuncDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84E64D091754922100765F3D /* Debug */,

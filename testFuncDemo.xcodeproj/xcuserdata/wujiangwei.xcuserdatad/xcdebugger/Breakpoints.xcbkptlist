@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
-         timestampString = "400587282.199634"
+         timestampString = "400666378.067623"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "807"
-         endingLineNumber = "807"
+         startingLineNumber = "823"
+         endingLineNumber = "823"
          landmarkName = "-newStartFollowShopCart"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,12 +73,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
-         timestampString = "400587282.199634"
+         timestampString = "400666378.067623"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "805"
-         endingLineNumber = "805"
-         landmarkName = "-newStartFollowShopCart"
+         startingLineNumber = "821"
+         endingLineNumber = "821"
+         landmarkName = "@implementation taobaoShopCartViewViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
+         timestampString = "400666378.067623"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "643"
+         endingLineNumber = "643"
+         landmarkName = "-getTaobaokeInfo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
+         timestampString = "400666378.067623"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "923"
+         endingLineNumber = "923"
+         landmarkName = "-webViewDidFinishLoad:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "YouTaoShop/taobaoShopCartViewViewController.m"
+         timestampString = "400666565.499792"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "345"
+         endingLineNumber = "345"
+         landmarkName = "-getSingleProductName"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

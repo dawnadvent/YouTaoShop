@@ -26,8 +26,8 @@
 #define PARSE_PRODUCTS_SHOP_SEPARATE                    @"\t"
 #define PARSE_PRODUCTS_PRODUCTS_SEPARATE                @"-*-"
 
-#define GET_WEB_LISTDATA_INTERVAL       0.5
-#define MAX_GET_LIST_COUNT              11
+#define GET_WEB_LISTDATA_INTERVAL       2.0
+#define MAX_GET_LIST_COUNT              10
 
 #define LocalWebTag             101
 #define TabAllWebTag            503
@@ -510,7 +510,7 @@
 - (void)WebViewLoadListItemSucceed:(UIWebView *)webView
 {
     NSString *listCountString = [webView stringByEvaluatingJavaScriptFromString:@"(document.getElementsByClassName('J_PreviewArrow')).length"];
-    if ((!listCountString || listCountString.intValue < 6) && ((webView.tag - 1 - TabAllWebTag)< MAX_GET_LIST_COUNT*2)) {
+    if ((!listCountString || listCountString.intValue < 1) && ((webView.tag - 1 - TabAllWebTag)< MAX_GET_LIST_COUNT)) {
         NSLog(@"webView %@ list data %d have not get succeed,so waiting %f second", webView, webView.tag, GET_WEB_LISTDATA_INTERVAL);
         webView.tag++;
         [self performSelector:@selector(WebViewLoadListItemSucceed:) withObject:webView afterDelay:GET_WEB_LISTDATA_INTERVAL];

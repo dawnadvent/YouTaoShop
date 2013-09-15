@@ -1605,11 +1605,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/YouTaoShop/TOPiOSSdk/demo/brigedemo/brigedemo\"",
-					"\"$(SRCROOT)/YouTaoShop/TOPiOSSdk/demo/IsvItemNative/IsvItem\"",
-					"\"$(SRCROOT)/YouTaoShop/TOPiOSSdk/demo/IsvTradeNative/IsvTrade\"",
-					"\"$(SRCROOT)/YouTaoShop/TOPiOSSdk/demo/ItemDemo/ItemDemo/ItemDemo\"",
-					"\"$(SRCROOT)/YouTaoShop/TOPiOSSdk/demo/toolbarDemo/toolbarDemo\"",
 					"\"$(SRCROOT)/YouTaoShop/TOPiOSSdk\"",
 					"\"$(SRCROOT)/YouTaoShop/UMeng\"",
 					"\"$(SRCROOT)/YouTaoShop/UMSocial_Sdk_All_2.2.1.1/UMSocial_Sdk_2.2.1.1/frameworks/Wechat\"",

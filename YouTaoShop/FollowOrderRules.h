@@ -12,8 +12,8 @@
 
 /*return value:YES:get All String succeed,NO:get pid failed,using webUrl pid*/
 
-+(BOOL)preLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString *)pidString;
++(BOOL)preLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString **)pidString;
 
-+(BOOL)finishLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString *)pidString;
++(BOOL)finishLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString **)pidString;
 
 @end

@@ -33,13 +33,6 @@
     UITabBar *tabMenuBar;
     
     customTabBarItem *fanliTabBar;
-    
-    IBOutlet UIImageView *shopCartNote;
-    uint bannerArrayCount;
-    UIPageControl *scrollPage;
-    
-    uint currentTabIndex;
-    UIImageView *itemBg;
 }
 
 @end
@@ -60,74 +53,6 @@
 - (void)taobaoCallback:(id)aaa
 {
     NSLog(@"aaa %@", aaa);
-}
-
-- (void)bannerTimer:(NSTimer *)timer
-{
-    CGPoint bannerPoint = BannerScrollView.contentOffset;
-    if (bannerPoint.x == (bannerArrayCount-1)*320) {
-        bannerPoint.x = 0;
-    }else{
-        bannerPoint.x = bannerPoint.x + 320;
-    }
-    if (bannerArrayCount-1 < bannerPoint.x/320) {
-        scrollPage.currentPage = 0;
-    }else
-        scrollPage.currentPage = bannerPoint.x/320;
-    BannerScrollView.contentOffset = bannerPoint;
-}
-
-- (void)startBannerTimer
-{
-    [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(bannerTimer:) userInfo:nil repeats:YES];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    if (bannerArrayCount-1 < scrollView.contentOffset.x/320) {
-        scrollPage.currentPage = 0;
-    }else
-        scrollPage.currentPage = scrollView.contentOffset.x/320;
-
-}
-
-- (void)pageSelect
-{
-    CGPoint point = CGPointMake(scrollPage.currentPage*320, 0);
-    BannerScrollView.contentOffset = point;
-}
-
-- (void)loadBanner
-{
-    NSArray *bannerArray = [NSArray arrayWithContentsOfFile:[self getContentWithName:BANNER_PLIST_FILE]];
-    //NSLog(@"banner array %@", bannerArray);
-    bannerArrayCount = bannerArray.count;
-    uint index = 0;
-    BannerScrollView.contentSize = CGSizeMake(320*bannerArray.count, BannerScrollView.frame.size.height);
-    BannerScrollView.pagingEnabled = YES;
-    for (NSDictionary *bannerDic in bannerArray) {
-        BannerImageView *bImageView = [[[BannerImageView alloc] initWithFrame:CGRectMake(index*320, 0, 320, BannerScrollView.frame.size.height)]autorelease];
-        bImageView.userInteractionEnabled = YES;
-        bImageView.clickUrl = [bannerDic safeObjectForKey:@"sClickUrl"];
-        bImageView.isLocalJump = ((NSNumber *)[bannerDic safeObjectForKey:@"isLocalJump"]).boolValue;//unused
-        NSNumber *isLocalImage = [bannerDic safeObjectForKey:@"isLocalImage"];
-        if (isLocalImage.boolValue) {
-            bImageView.image = [UIImage imageNamed:[bannerDic safeObjectForKey:@"localImageName"]];
-        }else{
-            [bImageView setImageWithURL:[NSURL URLWithString:[bannerDic safeObjectForKey:@"remoteImageUrl"]]];
-        }
-        bImageView.rootViewControl = self;
-        [BannerScrollView addSubview:bImageView];
-        index++;
-    }
-    
-    scrollPage = [[UIPageControl alloc] initWithFrame:CGRectMake(100, 95, 120, 20)];
-    //[scrollPage addTarget:self action:@selector(pageSelect) forControlEvents:UIControlEventValueChanged];
-    scrollPage.numberOfPages = bannerArrayCount;
-    [baseScrollView addSubview:scrollPage];
-    [scrollPage release];
-    
-    [self startBannerTimer];
 }
 
 - (void)refreshFanliNum
@@ -323,28 +248,6 @@
     }
 }
 
-- (void)setViewGes
-{
-    UITapGestureRecognizer *ges = nil;
-    
-    ges = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MainItemTap:)] autorelease];
-    [taobaoImageView addGestureRecognizer:ges];
-    
-    ges = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MainItemTap:)] autorelease];
-    [taobaoTejiataobaoImageView addGestureRecognizer:ges];
-    
-    ges = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MainItemTap:)] autorelease];
-    [taobaoJuhuasuantaobaoImageView addGestureRecognizer:ges];
-    
-    ges = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MainItemTap:)] autorelease];
-    [tmalltaobaoImageView addGestureRecognizer:ges];
-    
-    ges = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MainItemTap:)] autorelease];
-    [tmallTemaitaobaoImageView addGestureRecognizer:ges];
-    
-    ges = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MainItemTap:)] autorelease];
-    [taobaoSHopcarttaobaoImageView addGestureRecognizer:ges];
-}
 
 - (void)TotalFanliResult:(float)fanliValue
 {
@@ -389,10 +292,6 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     self.navigationController.navigationBarHidden = YES;
-    
-    //
-    [self setViewGes];
-    [self loadBanner];
     
     //第一次启动提醒
     /*NSNumber *shopcartFlag = [[NSUserDefaults standardUserDefaults] objectForKey:kShop_cart_Note];
@@ -452,7 +351,7 @@ static NSString *noteRank = @"userNoteRank";
 
 - (void)UMengOnlineData:(NSNotification *)notification
 {
-    NSString *bannerData = [MobClick getConfigParams:@"banner"];
+    NSString *bannerData = [MobClick getConfigParams:@"HomeActi"];
     NSArray *bannerArray = [bannerData componentsSeparatedByString:@"@@@***"];
     
     bannerArrayCount = bannerArray.count/2;

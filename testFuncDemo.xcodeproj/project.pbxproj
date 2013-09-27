@@ -217,6 +217,11 @@
 		9A4517FC17D0A11900843A57 /* SDCachedURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4517F917D0A11900843A57 /* SDCachedURLResponse.m */; };
 		9A4517FD17D0A11900843A57 /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4517FB17D0A11900843A57 /* SDURLCache.m */; };
 		9AD38D2217D57DDB00DBC587 /* webImageShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD38D2117D57DDB00DBC587 /* webImageShow.m */; };
+		9AEFC33B17F2930B006A8336 /* HomeAc0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AEFC33717F2930B006A8336 /* HomeAc0.jpg */; };
+		9AEFC33C17F2930B006A8336 /* HomeAc1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AEFC33817F2930B006A8336 /* HomeAc1.jpg */; };
+		9AEFC33D17F2930B006A8336 /* HomeAc2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AEFC33917F2930B006A8336 /* HomeAc2.jpg */; };
+		9AEFC33E17F2930B006A8336 /* HomeAc3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AEFC33A17F2930B006A8336 /* HomeAc3.jpg */; };
+		9AEFC34217F2C2BB006A8336 /* MainViewControllerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFC34117F2C2BB006A8336 /* MainViewControllerModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -560,6 +565,12 @@
 		9A4517FB17D0A11900843A57 /* SDURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDURLCache.m; sourceTree = "<group>"; };
 		9AD38D2017D57DDB00DBC587 /* webImageShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webImageShow.h; sourceTree = "<group>"; };
 		9AD38D2117D57DDB00DBC587 /* webImageShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webImageShow.m; sourceTree = "<group>"; };
+		9AEFC33717F2930B006A8336 /* HomeAc0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeAc0.jpg; sourceTree = "<group>"; };
+		9AEFC33817F2930B006A8336 /* HomeAc1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeAc1.jpg; sourceTree = "<group>"; };
+		9AEFC33917F2930B006A8336 /* HomeAc2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeAc2.jpg; sourceTree = "<group>"; };
+		9AEFC33A17F2930B006A8336 /* HomeAc3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeAc3.jpg; sourceTree = "<group>"; };
+		9AEFC34017F2C2BB006A8336 /* MainViewControllerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewControllerModel.h; sourceTree = "<group>"; };
+		9AEFC34117F2C2BB006A8336 /* MainViewControllerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewControllerModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -819,6 +830,10 @@
 		266776E217E0AE4400F22717 /* 1.7image */ = {
 			isa = PBXGroup;
 			children = (
+				9AEFC33717F2930B006A8336 /* HomeAc0.jpg */,
+				9AEFC33817F2930B006A8336 /* HomeAc1.jpg */,
+				9AEFC33917F2930B006A8336 /* HomeAc2.jpg */,
+				9AEFC33A17F2930B006A8336 /* HomeAc3.jpg */,
 				266776E517E0AF6A00F22717 /* san.png */,
 				266776E317E0AE4400F22717 /* note.png */,
 			);
@@ -1029,6 +1044,7 @@
 				84827E921759F3BD00AC3859 /* MainViewController.h */,
 				84827E931759F3BE00AC3859 /* MainViewController.m */,
 				84827E941759F3BE00AC3859 /* MainViewController.xib */,
+				9AEFC33F17F2C280006A8336 /* UMengDataModel */,
 				26087D8A177AD7580090E41F /* customTaobaokeApi */,
 				2606FB061777F0A90076C4F7 /* customView */,
 				84E64D901755A7BC00765F3D /* taobaoShopCartUntil */,
@@ -1232,6 +1248,15 @@
 			path = SDUrlCache;
 			sourceTree = "<group>";
 		};
+		9AEFC33F17F2C280006A8336 /* UMengDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				9AEFC34017F2C2BB006A8336 /* MainViewControllerModel.h */,
+				9AEFC34117F2C2BB006A8336 /* MainViewControllerModel.m */,
+			);
+			name = UMengDataModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1411,6 +1436,10 @@
 				266776CF17E0ACD800F22717 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				266776E417E0AE4400F22717 /* note.png in Resources */,
 				266776E617E0AF6A00F22717 /* san.png in Resources */,
+				9AEFC33B17F2930B006A8336 /* HomeAc0.jpg in Resources */,
+				9AEFC33C17F2930B006A8336 /* HomeAc1.jpg in Resources */,
+				9AEFC33D17F2930B006A8336 /* HomeAc2.jpg in Resources */,
+				9AEFC33E17F2930B006A8336 /* HomeAc3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1487,6 +1516,7 @@
 				9A4517FD17D0A11900843A57 /* SDURLCache.m in Sources */,
 				9AD38D2217D57DDB00DBC587 /* webImageShow.m in Sources */,
 				9A18543317E1A7D700911E6A /* FollowOrderRules.m in Sources */,
+				9AEFC34217F2C2BB006A8336 /* MainViewControllerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

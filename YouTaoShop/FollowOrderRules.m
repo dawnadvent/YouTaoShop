@@ -97,21 +97,19 @@ static NSString *webKey1 = @"finished";
         return NO;
     }
     
+    //URL必须匹配一个
+    BOOL urlFlag = NO;
+    
     for (int i = 1; i < singeKeyArray.count ; i++) {
         NSString *key = [singeKeyArray objectAtIndex:i];
         if ([key hasPrefix:@"http://"]) {
-            if (![webUrlString hasPrefix:key]) {
-                return NO;
-            }else{
-                NSRange range = [webUrlString rangeOfString:key];
-                if (range.location == NSNotFound) {
-                    return NO;
-                }
+            if ([webUrlString hasPrefix:key]) {
+                urlFlag = YES;
             }
         }
     }
     
-    return YES;
+    return urlFlag;
 }
 
 + (BOOL)isUrlTaobaoShopCart:(NSString *)webUrlString
@@ -131,16 +129,21 @@ static NSString *webKey1 = @"finished";
         return NO;
     }
     
-    for (int i = 1; i < shopKeyArray.count ; i++) {
+    //必须包含URL前缀
+    NSString *preUrl = [shopKeyArray objectAtIndex:1];
+    if (![webUrlString hasPrefix:preUrl]) {
+        return NO;
+    }
+    //必须包含所有关键字
+    for (int i = 2; i < shopKeyArray.count ; i++) {
         NSString *key = [shopKeyArray objectAtIndex:i];
-        if ([webUrlString hasPrefix:key]) {
-            if ([webUrlString hasPrefix:key]) {
-                return YES;
-            }
+        NSRange rang = [webUrlString rangeOfString:key];
+        if (rang.location == NSNotFound) {
+            return NO;
         }
     }
     
-    return NO;
+    return YES;
 }
 
 + (NSString *)getShopCartKeyString
@@ -153,7 +156,7 @@ static NSString *webKey1 = @"finished";
     return [MobClick getConfigParams:kTaobaoSingleUrlDicKey];
 }
 
-+(BOOL)preLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString *)pidString
++(BOOL)preLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString **)pidString
 {
     if ([FollowOrderRules isUrlTaobaoShopCart:webUrl] && [FollowOrderRules isTaobaoShopCartPreWebView]) {
         //购物车页面跟单规则 —— 用户进入淘宝购物车页面购买商品
@@ -162,11 +165,9 @@ static NSString *webKey1 = @"finished";
         //单品页面跟单规则 —— 用户直接购买
         NSString *buyNowString = [FollowOrderRules getSingleUrlKeyString];
     }
-    
-    
 }
 
-+(BOOL)finishLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString *)pidString
++(BOOL)finishLoadGetFollowInfoString:(UIWebView *)webview Url:(NSString *)webUrl ProductNameString:(NSString **)nameString ProductPidString:(NSString **)pidString
 {
     //
 }

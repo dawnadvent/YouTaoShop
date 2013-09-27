@@ -16,13 +16,6 @@
     IBOutlet UIImageView *introducePic;
     IBOutlet UIScrollView *BannerScrollView;
     
-    IBOutlet UILabel *taobaoImageView;
-    IBOutlet UILabel *taobaoTejiataobaoImageView;
-    IBOutlet UILabel *taobaoJuhuasuantaobaoImageView;
-    IBOutlet UILabel *tmalltaobaoImageView;
-    IBOutlet UILabel *tmallTemaitaobaoImageView;
-    IBOutlet UILabel *taobaoSHopcarttaobaoImageView;
-    
     UIWebView *taobaoWebView;
 }
 
